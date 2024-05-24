@@ -1,0 +1,18 @@
+
+[workspace]
+members = [
+  "week-preparation-kit"
+]
+
+
+[package]
+name = "hacker-programs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+week-preparation-kit = { path = "./week-preparation-kit", default = true, features = ["proportion"] }
+
+
