@@ -1,29 +1,26 @@
-use week_preparation_kit::kits::proportion;
-use std::io::{Cursor, Read};
+use week_preparation_kit::kits::proportion::{self, vec_elements_proportion};
+use std::io::{Cursor, Read, self, BufRead, Write};
+
+fn prompt<R, W>(mut reader: R, mut writer: W, arr: &str) -> String
+where
+    R: BufRead,
+    W: Write,
+{
+    write!(&mut writer, "{}", arr).expect("Unable to write");
+    let mut s = String::new();
+    reader.read_line(&mut s).expect("Unable to read");
+    s
+}
+
+
 
 #[test]
 fn test_vec_elements_proportion() {
   // Arrange
   let input = "1 54 63 -4 0 -15\n";
-  let expected_output = "0.500000\n0.333333\n0.166667\n";
-  let mut output = Vec::new();
-
-  // Act
-  let input_reader = Cursor::new(input);
-  let output_writer = Cursor::new(&mut output);
-  let output_writer = &mut output_writer.chain(std::io::sink());
-
-  std::io::stdin().with_reader(input_reader, || {
-    std::io::stdout().with_writer(output_writer, || {
-      proportion::vec_elements_proportion()
-    });
-  });
-
-  // Convert output bytes to string
-  let result = std::str::from_utf8(&output).unwrap();
-
-  // Assert
-  assert_eq!(result, expected_output);
-
+  let expected_output = vec![0.500000, 0.333333, 0.166667];
+  let mut cursor = Cursor::new(input);
+  let res = vec_elements_proportion(&mut cursor);
+  assert_eq!(res, expected_output);
 }
 
