@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #[cfg(feature = "proportion")]
 
-use std::io::{self, BufRead};
+use std::io::BufRead;
 
 pub fn vec_elements_proportion<R: BufRead>(input: &mut R) -> Vec<f32>{
     // println!("Please Enter elements separated by space: ");
