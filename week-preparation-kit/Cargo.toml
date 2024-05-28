@@ -11,4 +11,5 @@ edition = "2021"
 default = ["proportion"]
 
 proportion = []
+min_and_max = []
 

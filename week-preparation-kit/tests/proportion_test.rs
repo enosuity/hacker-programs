@@ -1,19 +1,6 @@
 use week_preparation_kit::kits::proportion::{self, vec_elements_proportion};
 use std::io::{Cursor, Read, self, BufRead, Write};
 
-fn prompt<R, W>(mut reader: R, mut writer: W, arr: &str) -> String
-where
-    R: BufRead,
-    W: Write,
-{
-    write!(&mut writer, "{}", arr).expect("Unable to write");
-    let mut s = String::new();
-    reader.read_line(&mut s).expect("Unable to read");
-    s
-}
-
-
-
 #[test]
 fn test_vec_elements_proportion() {
   // Arrange
