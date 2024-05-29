@@ -1,20 +1,25 @@
 use std::{env, fs::File, io::{self, BufRead, Write}};
 
-use week_preparation_kit::kits::time_conversion;
+use week_preparation_kit::kits::lonely_integer;
 
 fn main() {
-    let path = env::var("TIME_OUTPUT").unwrap();
 
     let stdin = io::stdin();
     
-    println!("Please Enter time (hh:mm:ssAM/PM)");
+    println!("Please Enter  vector elements:");
     let mut input_iter = stdin.lock().lines();
 
-    let mut fptr = File::create(path).unwrap();
-    let time = input_iter.next().unwrap().unwrap();
+    let mut elements = input_iter.next().unwrap().unwrap();
 
-    let converted_time = time_conversion::run(&time);
-    
-    writeln!(&mut fptr, "{}", converted_time).ok();
+    let arr: Vec<i32> = elements.trim_end()
+            .split(" ")
+            .map(|elem| elem.to_string().parse::<i32>().unwrap())
+            .collect();
+
+    println!("arr => {:?}", arr);
+
+    let res = lonely_integer::run(&arr);
+
+    println!("Lonely integer => {:?}", res);   
 }
 

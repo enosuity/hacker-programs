@@ -8,10 +8,11 @@ edition = "2021"
 [dependencies]
 
 [features]
-default = ["min_and_max", "proportion", "time-conversion"]
+default = ["min_and_max", "proportion", "time-conversion", "lonely-int"]
 
 proportion = []
 min_and_max = []
 time-conversion = []
+lonely-int = []
 
 
