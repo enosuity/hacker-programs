@@ -18,8 +18,8 @@ fn test_lonely_integer_zero() {
 
 #[test]
 fn test_lonely_integer_multiple_uniq() {
-  let input = vec![1,2,3,4,1];
-  let expected_output = 2;
+  let input = vec![1,2,2,8,1];
+  let expected_output = 8;
   let res = lonely_integer::run(&input);
   assert_eq!(res, expected_output);
 }

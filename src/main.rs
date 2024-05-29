@@ -1,24 +1,31 @@
-use std::{env, fs::File, io::{self, BufRead, Write}};
+use std::io;
+use std::io::prelude::*;
 
-use week_preparation_kit::kits::lonely_integer;
+use week_preparation_kit::kits::diagonal_difference;
 
 fn main() {
 
     let stdin = io::stdin();
     
-    println!("Please Enter  vector elements:");
+    
     let mut input_iter = stdin.lock().lines();
 
-    let mut elements = input_iter.next().unwrap().unwrap();
+    println!("Enter Matrix size: ");
+    let matrix_size = input_iter.next().unwrap().unwrap().parse::<i8>().unwrap();
 
-    let arr: Vec<i32> = elements.trim_end()
-            .split(" ")
-            .map(|elem| elem.to_string().parse::<i32>().unwrap())
-            .collect();
+    let mut matrix = Vec::with_capacity(matrix_size as usize);
 
-    println!("arr => {:?}", arr);
+    for i in 0..matrix_size as usize {
+        matrix.push(Vec::with_capacity(matrix_size as usize));
 
-    let res = lonely_integer::run(&arr);
+        matrix[i] = input_iter.next().unwrap().unwrap()
+                              .trim()
+                              .split(" ")
+                              .map(|x| x.parse::<i32>().unwrap())
+                              .collect();
+    }
+
+    let res = diagonal_difference::run(&matrix);
 
     println!("Lonely integer => {:?}", res);   
 }
