@@ -13,7 +13,8 @@ default = [
   "proportion",
   "time-conversion",
   "lonely-int",
-  "diagonal-diff"
+  "diagonal-diff",
+  "comparison-sort"
 ]
 
 proportion = []
@@ -21,6 +22,7 @@ min_and_max = []
 time-conversion = []
 lonely-int = []
 diagonal-diff = []
+comparison-sort = []
 
 
 
