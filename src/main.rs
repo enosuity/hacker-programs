@@ -1,28 +1,20 @@
-use std::io;
-use std::io::prelude::*;
-
-use week_preparation_kit::kits::comparison_sorting;
+use minigrep::run;
+use std::{env, process};
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
 
-    let stdin = io::stdin(); 
+    let config = minigrep::Config::build(args).unwrap_or_else(|err| {
+        eprintln!("Problem parsing arguments: {}", err);
+        process::exit(1);
+    });
+
+
+    run(config).unwrap_or_else(|err|{
+        eprintln!("Application error: {err}");
+        process::exit(1);
+    });
     
-    let mut input_iter = stdin.lock().lines();
-
-    println!("Enter Matrix size: ");
-    let matrix_size = input_iter.next().unwrap().unwrap().parse::<i32>().unwrap();
-
-    let mut matrix = Vec::with_capacity(matrix_size as usize);
-
-    matrix = input_iter.next().unwrap().unwrap()
-                        .trim()
-                        .split(" ")
-                        .map(|x| x.parse::<i32>().unwrap())
-                        .collect();
-    
-
-    let res = comparison_sorting::run(&matrix);
-
-    println!("Lonely integer => {:?}", res);   
 }
 
+// IGNORE_CASE=1 cargo run -- Data  hello.txt > my_error.txt

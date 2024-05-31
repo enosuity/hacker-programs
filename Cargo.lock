@@ -6,8 +6,13 @@ version = 3
 name = "hacker-programs"
 version = "0.1.0"
 dependencies = [
+ "minigrep",
  "week-preparation-kit",
 ]
+
+[[package]]
+name = "minigrep"
+version = "0.1.0"
 
 [[package]]
 name = "week-preparation-kit"

@@ -1,6 +1,7 @@
 
 [workspace]
 members = [
+  "minigrep",
   "week-preparation-kit"
 ]
 
@@ -13,6 +14,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-week-preparation-kit = { path = "./week-preparation-kit", default = false, features = ["diagonal-diff"] }
+week-preparation-kit = { path = "./week-preparation-kit", default = false, features = ["comparison-sort"] }
+minigrep = { path = "./minigrep" }
 
 
