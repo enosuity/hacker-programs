@@ -1,7 +1,5 @@
 use minigrep::inventory::store;
-use std::{io, process};
-
-
+use std::io;
 
 
 fn main() {
@@ -32,9 +30,8 @@ fn main() {
     let choice = lines.next().unwrap().unwrap();
 
     let choice = inventory.entry(&choice)
-                                     .unwrap_or_else(|err| inventory.gateway().unwrap());
+                                      .unwrap_or_else(|_err| inventory.gateway().unwrap());
 
-   println!("Your T-shirt color: {:?}", choice);
-        
+   println!("Your T-shirt color: {:?}", choice);        
 }
 
