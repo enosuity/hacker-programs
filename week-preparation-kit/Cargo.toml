@@ -14,7 +14,8 @@ default = [
   "time-conversion",
   "lonely-int",
   "diagonal-diff",
-  "comparison-sort"
+  "comparison-sort",
+  "zig-zag-sq"
 ]
 
 proportion = []
@@ -23,6 +24,7 @@ time-conversion = []
 lonely-int = []
 diagonal-diff = []
 comparison-sort = []
+zig-zag-sq = []
 
 
 

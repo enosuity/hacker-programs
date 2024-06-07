@@ -4,3 +4,4 @@ pub mod time_conversion;
 pub mod lonely_integer;
 pub mod diagonal_difference;
 pub mod comparison_sorting;
+pub mod zig_zag_sequence;

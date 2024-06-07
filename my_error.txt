@@ -1,0 +1,3 @@
+This chapter recapped some of the major concepts you’ve learned so far
+you’re now prepared to write command line applications. Combined with the concepts in previous chapters,
+your code will be well organized, store data effectively in the appropriate data structures,

@@ -1,4 +1,4 @@
-use std::{error::Error, fs, path};
+use std::{error::Error, fs};
 use std::env;
 
 pub mod inventory;
@@ -13,12 +13,34 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: Vec<String>) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments ");
-        }
-        let query = args[1].clone();
-        let file_path = args[2].clone();
+    // pub fn build(args: Vec<String>) -> Result<Config, &'static str> {
+    //     if args.len() < 3 {
+    //         return Err("not enough arguments ");
+    //     }
+    //     let query = args[1].clone();
+    //     let file_path = args[2].clone();
+
+    //     let ignore_case = env::var("IGNORE_CASE").is_ok();
+
+    //     Ok(Config {
+    //                 query: query,
+    //                 file_path,
+    //                 ignore_case,
+    //             })
+        
+    // }
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("did not get query string"),
+        };
+
+        let file_path = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Did not get any file path"),
+        };
 
         let ignore_case = env::var("IGNORE_CASE").is_ok();
 
@@ -28,7 +50,7 @@ impl Config {
                     ignore_case,
                 })
         
-    }    
+    }        
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -47,24 +69,34 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn search<'a>(query: &'a str, content: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-    for line in content.lines() {
-        if line.contains(query) {
-            results.push(line.trim());
-        }
-    }
-    results        
+fn search<'a>(query: &'a str, contents: &'a str) -> Vec<&'a str> {
+    // let mut results = Vec::new();
+
+    // for line in content.lines() {
+    //     if line.contains(query) {
+    //         results.push(line.trim());
+    //     }
+    // }
+    // results 
+    contents.lines() 
+            .map(|line| line.trim())  
+            .filter(|line| line.contains(query))
+            .collect()
+            
 }
 
-fn search_with_case_ignore<'a>(query: &'a str, content: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-    for line in content.lines() {
-        if line.to_lowercase().contains(&query.to_lowercase()) {
-            results.push(line.trim());
-        }
-    }
-    results        
+fn search_with_case_ignore<'a>(query: &'a str, contents: &'a str) -> Vec<&'a str> {
+    // let mut results = Vec::new();
+    // for line in content.lines() {
+    //     if line.to_lowercase().contains(&query.to_lowercase()) {
+    //         results.push(line.trim());
+    //     }
+    // }
+    // results
+    contents.lines()
+            .map(|line| line.trim())
+            .filter(|&line| line.to_lowercase().contains(&query.to_lowercase()))
+            .collect()        
 }
 
 #[cfg(test)]
@@ -153,9 +185,16 @@ mod minigrep {
 
 
 // fn main() {
-//     let args: Vec<String> = env::args().collect();
+//     // =========== using string vector =============
+//     // let args: Vec<String> = env::args().collect();
 
-//     let config = minigrep::Config::build(args).unwrap_or_else(|err| {
+//     // let config = minigrep::Config::build(args).unwrap_or_else(|err| {
+//     //     eprintln!("Problem parsing arguments: {}", err);
+//     //     process::exit(1);
+//     // });    
+
+//     // ============= same thing we can do using Iterator ===============    
+//     let config = minigrep::Config::build(env::args()).unwrap_or_else(|err| {
 //         eprintln!("Problem parsing arguments: {}", err);
 //         process::exit(1);
 //     });
