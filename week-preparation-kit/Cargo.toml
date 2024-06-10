@@ -15,7 +15,8 @@ default = [
   "lonely-int",
   "diagonal-diff",
   "comparison-sort",
-  "zig-zag-sq"
+  "zig-zag-sq",
+  "tower-breaker-winner"
 ]
 
 proportion = []
@@ -25,6 +26,7 @@ lonely-int = []
 diagonal-diff = []
 comparison-sort = []
 zig-zag-sq = []
+tower-breaker-winner = []
 
 
 

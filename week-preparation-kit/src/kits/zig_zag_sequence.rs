@@ -1,6 +1,6 @@
-pub fn greeting() {
-  println!("zig zag sequence!");
-}
+#![allow(unused)]
+#[cfg(feature = "zig-zag-sq")]
+
 
 pub fn execute(a: &mut [i32], n: usize) -> (){
     a.sort();
