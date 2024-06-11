@@ -1,7 +1,7 @@
 
 [workspace]
 members = [
-  # "minisearch",        // it is used when i use internal repo - minisearch
+  "minisearch",
   "week-preparation-kit"
 ]
 

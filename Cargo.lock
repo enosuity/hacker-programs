@@ -6,9 +6,13 @@ version = 3
 name = "hacker-programs"
 version = "0.1.0"
 dependencies = [
- "minisearch",
+ "minisearch 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "week-preparation-kit",
 ]
+
+[[package]]
+name = "minisearch"
+version = "0.1.1"
 
 [[package]]
 name = "minisearch"
