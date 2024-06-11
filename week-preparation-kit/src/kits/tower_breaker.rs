@@ -1,6 +1,16 @@
 #![allow(unused)]
 #[cfg(feature = "tower-breaker-winner")]
 
+/// Adds one to the number given.
+///
+/// # Examples
+///
+/// ```
+/// let arg = 5;
+/// let answer = my_crate::add_one(arg);
+///
+/// assert_eq!(6, answer);
+/// ```
 
 pub fn execute(num: i32, height: i32) -> i32 { 
   if height == 1 || num % 2 == 0 {

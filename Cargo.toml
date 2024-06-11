@@ -17,4 +17,7 @@ edition = "2021"
 week-preparation-kit = { path = "./week-preparation-kit", default = false, features = ["tower-breaker-winner"] }
 minigrep = { path = "./minigrep" }
 
+[profile.dev]
+opt-level = 0
+
 
