@@ -1,7 +1,7 @@
 
 [workspace]
 members = [
-  "minigrep",
+  "minisearch",
   "week-preparation-kit"
 ]
 
@@ -15,7 +15,7 @@ edition = "2021"
 
 [dependencies]
 week-preparation-kit = { path = "./week-preparation-kit", default = false, features = ["tower-breaker-winner"] }
-minigrep = { path = "./minigrep" }
+minisearch = { path = "./minisearch" }
 
 [profile.dev]
 opt-level = 0
