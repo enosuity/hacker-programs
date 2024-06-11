@@ -3,7 +3,7 @@ name = "minisearch"
 version = "0.1.1"
 edition = "2021"
 license = "MIT"
-description = "A mini search which can handle both - case sensitive or in-sensitive both."
+description = "A mini search which can handle both - case sensitive or in-sensitive both. First crate."
 authors = ["Minigrep search <dhimananuj93@gmail.com>"]
 repository = "https://github.com/enosuity/hacker-programs/tree/main/minisearch"
 

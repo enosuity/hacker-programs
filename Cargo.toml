@@ -1,7 +1,7 @@
 
 [workspace]
 members = [
-  "minisearch",
+  # "minisearch",        // it is used when i use internal repo - minisearch
   "week-preparation-kit"
 ]
 
@@ -15,7 +15,10 @@ edition = "2021"
 
 [dependencies]
 week-preparation-kit = { path = "./week-preparation-kit", default = false, features = ["tower-breaker-winner"] }
-minisearch = { path = "./minisearch" }
+# minisearch = { path = "./minisearch" }
+
+# Developed by me
+minisearch = "0.1.1"
 
 [profile.dev]
 opt-level = 0

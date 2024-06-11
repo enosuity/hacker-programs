@@ -13,6 +13,8 @@ dependencies = [
 [[package]]
 name = "minisearch"
 version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7b4b0619dbd5f40a734ce0b40f2e42ef27791e6396b5e7506ad91f586b3a4ff9"
 
 [[package]]
 name = "week-preparation-kit"
