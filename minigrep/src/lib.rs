@@ -1,9 +1,21 @@
+//! # minigrep
+//!
+//! `minigrep` is a collection of utilities to make search 
+//! as like grep.
+
+/// Adds more modules like store and custom closures .
+// --snip--
+
 use std::{error::Error, fs};
 use std::env;
 
 pub mod inventory;
 
+
 #[allow(unused)]
+
+
+
 
 #[derive(Debug)]
 pub struct Config {
