@@ -1,1 +1,3 @@
 you’re now prepared to write command line applications. Combined with the concepts in previous chapters,
+handle errors nicely, and be well tested.
+you’re now prepared to write command line applications. Combined with the concepts in previous chapters,
